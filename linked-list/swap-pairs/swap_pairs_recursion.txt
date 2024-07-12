@@ -1,0 +1,13 @@
+ public ListNode swapPairs(ListNode head) {
+       if(head==null || head.next==null)
+           return head;
+       var first = head;
+       var second = head.next;
+       var third = second.next;
+       first.next = third;
+       second.next = first;
+       if(third!=null){
+           first.next = swapPairs(third);
+       }
+       return second;
+    }
