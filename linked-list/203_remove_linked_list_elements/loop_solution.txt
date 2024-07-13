@@ -1,0 +1,19 @@
+public ListNode removeElements(ListNode head, int val) {
+        if(head==null){
+            return head;
+        }
+        var dummy = new ListNode(-1);
+        dummy.next = head;
+        var prev = dummy;
+        var curr= head;
+        while(curr!=null){
+            if(curr.val == val){
+                prev.next = curr.next;
+                curr = curr.next;
+            }else{
+                curr = curr.next;
+                prev=prev.next;
+            }
+        }
+        return dummy.next;
+    }
