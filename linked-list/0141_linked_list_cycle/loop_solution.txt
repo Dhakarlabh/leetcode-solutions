@@ -1,0 +1,17 @@
+public boolean hasCycle(ListNode head) {
+        if(head == null || head.next==null){
+            return false;
+        }
+        var curr = head;
+        var next= head;
+        while(next!=null ){
+                if(curr==null) return false;
+                if(next.next==null) return false;
+                curr= curr.next;
+                next = next.next.next;
+                if(curr == next){
+                    return true;
+                }
+        }
+        return false;
+  }
