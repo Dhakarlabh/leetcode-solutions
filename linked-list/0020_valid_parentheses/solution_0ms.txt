@@ -1,0 +1,18 @@
+public boolean isValid(String s) {
+       if (s.length() % 2 != 0)
+            return false;
+
+        char chars[] = new char[s.length()];
+        int top = -1;
+
+        for (int i = 0; i < s.length(); ++i) {
+            var c = s.charAt(i);
+            switch(c) {
+                case '(', '[', '{' -> { chars[++top] = c; }
+                case ')' -> { if (top == -1 || chars[top--] != '(') return false; }
+                case ']' -> { if (top == -1 || chars[top--] != '[') return false; }
+                case '}' -> { if (top == -1 || chars[top--] != '{') return false; }
+            }
+        }
+        return top == -1;
+    }
