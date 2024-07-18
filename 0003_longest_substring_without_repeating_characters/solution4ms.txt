@@ -1,0 +1,19 @@
+public int lengthOfLongestSubstring(String s) {
+    
+        int maxLen = 0;
+        boolean[] visited = new boolean[256];
+        int l=0,r=0;
+        while(r<s.length()){
+            if(visited[s.charAt(r)]){
+
+                while(visited[s.charAt(r)]){
+                    visited[s.charAt(l)] = false;
+                    l++;
+                }
+            }
+            visited[s.charAt(r)]=true;
+            maxLen = Math.max(maxLen,r-l+1);
+            r++;
+        }
+        return maxLen;
+    }
