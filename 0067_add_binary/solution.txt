@@ -1,0 +1,17 @@
+public String addBinary(String a, String b) {
+        int l1 = a.length()-1;
+        int l2 = b.length()-1;
+        StringBuilder s = new StringBuilder();
+        int c = 0;
+        while(l1>=0 || l2>=0 || c ==1){
+            if(l1>=0){
+                c += a.charAt(l1--) - '0';
+            }
+            if(l2>=0){
+                c += b.charAt(l2--) - '0';
+            }
+            s.append(c%2);
+            c/=2;
+        }
+        return s.reverse().toString();
+    }
