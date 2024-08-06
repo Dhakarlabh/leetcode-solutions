@@ -1,0 +1,11 @@
+public boolean canBeEqual(int[] t, int[] a) {
+         if(t.length != a.length) return false;
+        int[] elementCounts = new int[1001];
+        int uniqueCount = 0;
+        
+        for (int i = 0; i < t.length; i++) {
+            if (elementCounts[t[i]]++ == 0) uniqueCount++;
+            if (elementCounts[a[i]]-- == 1) uniqueCount--;
+        }     
+        return uniqueCount == 0;
+    }
