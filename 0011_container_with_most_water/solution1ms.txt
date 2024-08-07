@@ -1,0 +1,14 @@
+public int maxArea(int[] height) {
+        int leftPtr = 0;
+        int rightPtr = height.length - 1;
+        int maxArea = 0;
+        while (leftPtr < rightPtr) {
+            int w = rightPtr - leftPtr;
+            int h = Math.min(height[leftPtr], height[rightPtr]);
+            maxArea = Math.max(maxArea, w*h);
+
+            while (height[leftPtr] <= h && leftPtr < rightPtr) leftPtr++;
+            while (height[rightPtr] <= h && leftPtr < rightPtr) rightPtr--;
+        }
+        return maxArea;
+    }
