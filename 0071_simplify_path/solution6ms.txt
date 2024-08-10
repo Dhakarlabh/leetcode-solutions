@@ -1,0 +1,19 @@
+public String simplifyPath(String s) {
+        Stack<String> stack = new Stack<>();
+        String emptyString = "";
+        String backDir = "..";
+        String currDir = ".";
+        String[] splitString = s.split("/");
+        for(String str : splitString){
+            if(emptyString.equals(str) || currDir.equals(str) ) continue;
+            else if(backDir.equals(str)){
+                if(!stack.isEmpty()){
+                    stack.pop();
+                }
+            }
+            else stack.push(str);
+        }
+        
+        return "/" + String.join("/",stack);
+        
+    }
