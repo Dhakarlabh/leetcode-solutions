@@ -1,0 +1,24 @@
+public void merge(int[] n1, int m, int[] n2, int n) {
+        int i=0,j=0;
+        while(i<m && j<n){
+            if(n1[i]<=n2[j]){
+                i++;
+            }else{
+                int temp = n1[i];
+                n1[i] = n2[j];
+                n2[j] = temp;
+                i++;
+                j++;
+            }
+        }
+        j=0;
+        // for(int num :n2){
+        //     System.out.println(num);
+        // }
+        while(j<n){
+            n1[i] = n2[j];
+            i++;
+            j++;
+        }
+        
+    }
