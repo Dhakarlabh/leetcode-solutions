@@ -1,0 +1,19 @@
+public boolean isHappy(int n) {
+        Set<Integer> stored = new HashSet<Integer>();
+
+        while (n != 1) {
+            int ans = 0;
+            while (n > 0) {
+                int rem = n % 10;
+                ans += rem * rem;
+                n /= 10;
+            }
+            if (stored.contains(ans)) {
+                return false;
+            } else {
+                stored.add(ans);
+                n = ans;
+            }
+        }
+        return true;
+    }
