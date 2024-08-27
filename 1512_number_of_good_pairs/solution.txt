@@ -1,0 +1,14 @@
+public int numIdenticalPairs(int[] nums) {
+        int[] hash = new int[101];
+        for(int i=0;i<nums.length;i++){
+            hash[nums[i]]++;
+        }
+        int count=0;
+        for(int i=0;i<hash.length;i++) {
+            if(hash[i]!=0 || hash[i]!=1){
+                int n = hash[i];
+                count += (n * (n-1))/2;
+            }
+        }
+        return count;
+    }
