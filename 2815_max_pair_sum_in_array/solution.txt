@@ -1,0 +1,25 @@
+public int maxSum(int[] nums) {
+        int max = -1;
+        int maxDigits = 0;
+        for(int i=0; i<nums.length-1; i++){
+            maxDigits = getLargestDigit(nums[i]);
+            int maxT=0;
+            for(int j=i+1;j<nums.length;j++){
+                maxT = getLargestDigit(nums[j]);
+                if(maxDigits == maxT){
+                    max = Math.max(max,nums[i]+nums[j]);
+                }
+            }
+        }
+        return max;
+        
+    }
+
+    public int getLargestDigit(int n){
+        int digit = 0;
+        while(n>0){
+            digit = Math.max(digit,n%10);
+            n/=10;
+        } 
+        return digit;
+    }
