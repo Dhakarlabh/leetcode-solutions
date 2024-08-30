@@ -1,0 +1,27 @@
+public ListNode doubleIt(ListNode head) {
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        boolean is = false;
+        int c = 0;
+        var prev = head;
+        int first = prev.val*2;
+        prev.val = first%10;
+        if(first/10!=0){
+            dummy.val=first/10;
+            is = true;
+        }
+        var curr = head.next;
+        while(curr!=null){
+            int n = curr.val*2;
+            curr.val = n%10;
+            c = n/10;
+            if(c!=0){
+                prev.val += c;
+                c = 0;
+            }
+            curr = curr.next;
+            prev = prev.next;
+        }
+        if(is) return dummy;
+        return dummy.next;
+    }
