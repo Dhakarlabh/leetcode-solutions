@@ -1,0 +1,12 @@
+    public int[] sumZero(int n) {
+        int[] res = new int[n];
+        int rem = 0;
+        n--;
+        while(n>0){
+            res[n] = n;
+            rem += n;
+            n--;
+        }
+        res[0] = rem * -1;
+        return res;
+    }
