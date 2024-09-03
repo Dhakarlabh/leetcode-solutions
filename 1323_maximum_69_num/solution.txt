@@ -1,0 +1,13 @@
+public int maximum69Number (int num) {
+        int res = num;
+        int n = num;
+        int mul = 1;
+        while(n%10!=0){
+            if(n%10!=9){
+                res = Math.max(res, num+3*mul);
+            }
+            mul*=10;
+            n/=10;
+        }
+        return res;
+    }
