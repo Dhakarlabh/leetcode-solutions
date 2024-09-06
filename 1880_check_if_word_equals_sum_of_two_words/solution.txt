@@ -1,0 +1,18 @@
+public boolean isSumEqual(String f, String s, String t) {
+        int first = 0,second=0,third=0;
+        for(int i=0;i<f.length();i++){
+            int temp = f.charAt(i)%97;
+            first = first*10 + temp;
+        }
+
+        for(int i=0;i<s.length();i++){
+            int temp = s.charAt(i)%97;
+            second = second*10 + temp;
+        }
+
+        for(int i=0;i<t.length();i++){
+            int temp = t.charAt(i)%97;
+            third = third*10 + temp;
+        }
+        return third==first+second;
+    }
