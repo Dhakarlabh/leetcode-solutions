@@ -1,28 +1,24 @@
 public String maxValue(String n, int x) {
-        StringBuilder s = new StringBuilder();
-        var added = false;
-        if(n.charAt(0)=='-'){
-            for(int i=1;i<n.length();i++){
-                int temp = n.charAt(i)%48;
-                if(x<temp && !added){
-                    s.append(x);
-                    added = true;
+        StringBuilder s = new StringBuilder(n);
+        int length = n.length();
+        
+        if (n.charAt(0) == '-') {
+            for (int i = 1; i < length; i++) {
+                if (n.charAt(i) - '0' > x) {
+                    s.insert(i, x);
+                    return s.toString();
                 }
-                s.append(n.charAt(i));
             }
-        }else{
-            for(int i=0;i<n.length();i++){
-                int temp = n.charAt(i)%48;
-                if(x>=temp && !added){
-                    s.append(x);
-                    added = true;
+            s.append(x);
+        } else {
+            for (int i = 0; i < length; i++) {
+                // at point where x is larger than the number
+                if (n.charAt(i) - '0' < x) {
+                    s.insert(i, x);
+                    return s.toString();
                 }
-                s.append(n.charAt(i));
             }
-        }
-
-        if(n.charAt(0)=='-'){
-            return "-"+s.toString();
+            s.append(x);
         }
         return s.toString();
     }
