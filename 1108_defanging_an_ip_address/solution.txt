@@ -1,0 +1,12 @@
+public String defangIPaddr(String s1) {
+        String res = "";
+        for(int i=0;i<s1.length();i++){
+            if(s1.charAt(i)==('.')){
+                res += "[" +s1.charAt(i)+  "]";
+                System.out.println(res);
+            }else{
+                res += s1.charAt(i);
+            }
+        }
+        return res;
+    }
