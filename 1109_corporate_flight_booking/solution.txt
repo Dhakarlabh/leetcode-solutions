@@ -1,0 +1,10 @@
+public int[] corpFlightBookings(int[][] b, int n) {
+        Map<Integer,Integer> map = new HashMap();
+        for(int i=0;i<b.length;i++){
+            for(int j=b[i][0];j<b[i][1];j++){
+               var val = map.get(j);
+               map.put(j,val+b[i][3]);    
+            }
+        }
+        return ;
+    }
