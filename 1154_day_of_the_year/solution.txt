@@ -1,0 +1,28 @@
+public int dayOfYear(String date) {
+        int[] days = new int[]{0,31,59,90,120,151,181,212,243,273,304,334,356};
+
+        int month = Integer.parseInt(date.substring(5,7));
+        int day = Integer.parseInt(date.substring(8,10));
+        System.out.println(day);
+        boolean isLeapYear = isLeapYear(date.substring(0,4));
+        var res = days[month-1] + day;
+
+        return isLeapYear && month>2 ? res + 1 : res;
+
+    }
+
+    private boolean isLeapYear(String s) {
+    int year = Integer.parseInt(s);
+    boolean leap = false;
+    if (year % 4 == 0) {
+        if (year % 100 == 0) {
+            if (year % 400 == 0) {
+                leap = true;
+            }
+        } else {
+            leap = true;
+        }
+    }
+
+    return leap;
+}
