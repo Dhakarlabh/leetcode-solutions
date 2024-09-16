@@ -1,0 +1,24 @@
+public int countCharacters(String[] words, String c) {
+        int[] hash = new int[27];
+        for(int i=0;i<c.length();i++){
+            hash[c.charAt(i)-'a']++;
+        }
+        int count = 0;
+        for(String word : words){
+            boolean found = true;
+            var temp = hash;
+            for(int j=0;j<word.length();j++){
+                if(temp[word.charAt(j)-'a']==0){
+                    found = false;
+                    break;
+                }
+                else{
+                    temp[word.charAt(j)-'a']--;
+                }
+            }
+            if(found){
+                count += word.length();
+            }
+        }
+        return count;
+    }
