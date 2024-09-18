@@ -1,0 +1,25 @@
+public int numPrimeArrangements(int n) {
+        if(n==1 || n==2) return 1;
+        int p=2,np=1;
+        for(int i=4;i<=n;i++){
+            if(isPrime(i)) p++;
+            else np++;
+        }
+        int mod = 1000000007;
+        long ansp=1;
+        for(int i=1;i<=p;i++){
+            ansp =  (ansp*i)%mod;
+        }
+        long ansnp = 1;
+        for(int i=1;i<=np;i++){
+            ansnp = (ansnp*i)%mod;
+        }
+        return (int)((ansp*ansnp)%mod);
+
+    }
+    private boolean isPrime(int num){
+        for(int i=2;i<=Math.sqrt(num);i++){
+            if(num%i==0) return false;
+        }
+        return true;
+    }
