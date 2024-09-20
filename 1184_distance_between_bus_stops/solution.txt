@@ -1,0 +1,17 @@
+public int distanceBetweenBusStops(int[] dis, int s, int e) {
+        int[] d = new int[dis.length];
+        int start= s;
+        int n = dis.length;
+        int n1 = 0, n2=0;
+        while(s%n!=e%n){
+            n1+= dis[s%n];
+            s++;
+        }
+        s = e;
+        e = start;
+        while(s%n!=e%n){
+            n2+= dis[s%n];
+            s++;
+        }
+        return Math.min(n1,n2);
+    }
