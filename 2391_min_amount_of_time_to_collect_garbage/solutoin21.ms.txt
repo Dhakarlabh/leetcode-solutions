@@ -1,0 +1,31 @@
+public int garbageCollection(String[] g, int[] t) {
+        int tm = 0;
+        int tt = 0;
+        List<String> cache = new ArrayList<>(Arrays.asList("G", "M", "P"));
+        for(int i=0;i<t.length;i++){
+            tm += t[i];
+        }
+        int len = t.length-1;
+
+        for(int i = g.length-1; i>=0; i--){
+            tt += g[i].length();
+
+            if(g[i].contains("G") && cache.contains("G")){
+                tt+= tm;
+                cache.remove("G");
+            }
+            if(g[i].contains("P") && cache.contains("P")){
+                tt+= tm;
+                cache.remove("P");
+            }
+            if(g[i].contains("M") && cache.contains("M")){
+                tt+= tm;
+                cache.remove("M");
+            }
+            if(len>=0) {
+                tm -= t[len];
+            }
+            len--;
+        }
+        return tt;
+    }
