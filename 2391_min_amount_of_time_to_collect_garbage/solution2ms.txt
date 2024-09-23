@@ -1,0 +1,13 @@
+public int garbageCollection(String[] garbage, int[] travel) {
+        boolean mTruck = false, pTruck = false, gTruck = false;
+    
+        int time = garbage[0].length();
+        for(int x = garbage.length -1 ; x > 0  ; x--){
+            if(!mTruck && garbage[x].contains("M")) mTruck = true;
+            if(!pTruck && garbage[x].contains("P")) pTruck = true;
+            if(!gTruck && garbage[x].contains("G")) gTruck = true;
+                          
+            time +=  travel[x-1] * ((mTruck ? 1 : 0 )+ (pTruck ? 1 : 0)  + (gTruck ? 1 : 0) ) + garbage[x].length();
+        }
+        return time;
+  }
