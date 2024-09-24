@@ -1,0 +1,20 @@
+public int[] minOperations(String b) {
+        int[] res = new int[b.length()];
+        int sum = 0;
+        int num = 0;
+        for(int i=0; i<b.length(); i++){
+            if(b.charAt(i)=='1'){
+                sum +=i;
+                num++;
+            }
+        }
+        for(int i=0;i<b.length();i++){
+                res[i] = sum;
+                sum -= num;
+                if(b.charAt(i)==1){
+                    
+                }
+    
+        }
+        return res;
+    }
