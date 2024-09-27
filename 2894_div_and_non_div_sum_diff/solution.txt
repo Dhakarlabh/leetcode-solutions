@@ -1,0 +1,7 @@
+public int differenceOfSums(int n, int m) {
+        int sum = (n*(n+1))/2;
+        int nums = n/m;
+        int div = (nums*(nums+1)/2) * m;
+        int ndiv = sum-div;
+        return ndiv-div;
+    }
