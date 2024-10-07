@@ -1,0 +1,15 @@
+public int findWinningPlayer(int[] skills, int k) {
+        int max = skills[0],idx=0,l=0;
+        for(int i=1;i<skills.length;i++){
+            if(l>=k) return idx;
+
+            if(skills[i]>max){
+                max = skills[i];
+                idx =i;
+                l=1;
+            }else{
+                l++;
+            }
+        }
+        return idx;
+    }
