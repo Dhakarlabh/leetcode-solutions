@@ -1,0 +1,13 @@
+public int maxCoins(int[] piles) {
+        Arrays.sort(piles);
+        int l = piles.length;
+        int sum=0;
+        int count=l/3;
+        l-=2;
+        while(count>0){
+            sum+=piles[l];
+            l-=2;
+            count--;
+        }
+        return sum;    
+    }
