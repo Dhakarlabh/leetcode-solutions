@@ -1,0 +1,21 @@
+public int numberOfBeams(String[] bank) {
+        int sum=0;
+        int[] num = new int[bank.length];
+        for(int i=0;i<bank.length;i++){
+            int count=0;
+           for(int j=0;j<bank[i].length();j++){
+                if(bank[i].charAt(j) == '1'){
+                    count++;
+                }
+           } 
+            num[i] = count;
+        }
+        List<Integer> as = new ArrayList<>();
+        for(int i=0;i<num.length;i++){
+            if(num[i]!=0) as.add(num[i]);
+        }
+        for(int i=0;i<as.size()-1;i++){
+            sum+=as.get(i)*as.get(i+1);
+        }
+        return sum;
+    }
