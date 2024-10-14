@@ -1,0 +1,55 @@
+public int[] minOperations(String b) {
+        int[] res = new int[b.length()];
+        int n = b.length();
+        int[] fromStart = new int[n];
+        int[] fromEnd = new int[n];
+        int s = 0, e = 0;
+        int i=0;
+        while( i<n && b.charAt(i) == '0' ){
+            fromStart[i] =0;
+            i++;
+        }
+        int c=0;
+        for(int j=i; j<n; j++){
+            if(s == 0){
+                fromStart[j]=0;
+                s++;
+                c++;
+            }else if(b.charAt(j)=='1'){
+                fromStart[j] = s;
+                c++;
+                s+=c;;
+            }else{
+                fromStart[j] = s;
+                s+=c;
+            }
+        }
+
+        i=n-1;
+        c=0;
+        while(i>=0 && b.charAt(i) == '0'){
+            fromEnd[i] =0;
+            i--;
+        }
+        for(int j=i; j>=0; j--){
+            if(e == 0){
+                fromEnd[j]=0;
+                c++;
+                e++;
+            }else if(b.charAt(j)=='1'){
+                fromEnd[j] = e;
+                c++;
+                e+=c;
+            }else{
+                fromEnd[j] = e;
+                e+=c;
+            }
+        }
+
+
+        for( i=0;i<b.length();i++){
+            res[i] = fromStart[i] + fromEnd[i];
+
+        }
+        return res;
+    }
