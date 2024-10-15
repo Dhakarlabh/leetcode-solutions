@@ -1,0 +1,13 @@
+public int countMatches(List<List<String>> items, String ruleKey, String ruleValue) {
+        int i = switch (ruleKey) {
+            case "type" -> 0;
+            case "color" -> 1;
+            default -> 2;
+        };
+
+        int count=0;
+        for(List<String> item : items){
+            if(item.get(i).equals(ruleValue)) count++;
+        }
+        return count;
+    }
