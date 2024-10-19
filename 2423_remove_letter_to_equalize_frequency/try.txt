@@ -1,0 +1,30 @@
+public boolean equalFrequency(String word) {
+        int[] hash = new int[26];
+        int max=0;
+        for(int i=0;i<word.length();i++){
+            hash[word.charAt(i)-'a']++;
+            max=Math.max(max,hash[word.charAt(i)-'a']);
+
+        }
+        
+        int maxCount=0,secondMax=0,other=0;
+        for(int i=0;i<26;i++){
+    
+            if(hash[i] == 0) continue;
+            if(hash[i] == max) maxCount++;
+            if(hash[i] == max-1){ 
+                secondMax+=hash[i];
+                System.out.println(secondMax);
+            }
+            if(hash[i] < max-1) other++;
+        }
+                    System.out.println(max);
+        System.out.println(maxCount);
+        System.out.println(secondMax);
+        System.out.println(other);
+        
+        return (secondMax == 0 && other == 1 && max >= 2)  || 
+            (secondMax == 1 && other ==0 && max >= 2) || 
+            (maxCount == 1 &&  other ==0) || 
+            (secondMax == 0 && max == 1);
+    }
