@@ -1,0 +1,9 @@
+public int minMovesToSeat(int[] ses, int[] sts) {
+        int res=0;
+        Arrays.sort(ses);
+        Arrays.sort(sts);
+        for(int i=0;i<ses.length;i++){
+            res += Math.abs(ses[i]-sts[i]);
+        }
+        return res;
+    }
