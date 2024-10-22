@@ -1,0 +1,27 @@
+public int minBitFlips(int start, int goal) {
+        StringBuilder s = new StringBuilder(Integer.toBinaryString(start));
+        StringBuilder g = new StringBuilder(Integer.toBinaryString(goal));
+        
+        int sl = s.length();
+        int gl = g.length();
+        
+        if(sl>gl){
+            while(gl<sl){
+                g.insert(0, "0");
+                gl++;
+            }
+        } else if (gl>sl) {
+            while(sl<gl){
+                s.insert(0, "0");
+                sl++;
+            }
+        }
+        int count=0;
+        for(int i = 0; i < gl; i++){
+            if(s.charAt(i)!=g.charAt(i)){
+                count++;
+            }
+        }
+
+        return count;
+    }
