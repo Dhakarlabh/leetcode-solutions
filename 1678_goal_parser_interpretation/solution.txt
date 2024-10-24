@@ -1,0 +1,17 @@
+public String interpret(String command) {
+        var c = command.toCharArray();
+
+        StringBuilder s = new StringBuilder();
+        for (int i = 0; i < c.length; i++) {
+            if (c[i] == 'G') s.append("G");
+            else if (c[i] == '(' && c[i + 1] == ')') {
+                s.append("o");
+                i++;
+            }else if (c[i] == '(' && c[i + 1] == 'a') {
+                s.append("al");
+                i+=2;
+            }
+
+        }
+        return s.toString();
+    }
