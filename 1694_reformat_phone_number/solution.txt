@@ -1,0 +1,33 @@
+public String reformatNumber(String number) {
+        
+        StringBuilder s = new StringBuilder();
+        StringBuilder res = new StringBuilder();
+        for(char c: number.toCharArray()) {
+            if(c>='0' && c<='9')    s.append(c);
+        }
+        String nums = s.toString();
+        boolean flag = false;
+        int i=0;
+        while(i<nums.length()){
+            if(nums.length()-i==4){
+                if(flag) res.append("-");
+                res.append(nums.substring(i,i+2));
+                res.append("-");
+                res.append(nums.substring(i+2,i+4));
+                flag=true;
+                break;
+            }else if(nums.length()-i==2){
+                if(flag) res.append("-");
+                res.append(nums.substring(i,i+2));
+                flag=true;
+                break;
+            }else{
+                if(flag) res.append("-");
+                res.append(nums.substring(i,i+3));
+                flag=true;
+                i+=3;
+            }
+        }
+        return res.toString();
+
+    }
