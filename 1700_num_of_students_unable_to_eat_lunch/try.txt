@@ -1,0 +1,20 @@
+public int countStudents(int[] st, int[] sa) {
+        int n = st.length;
+        int r = st.length;
+        int i =0,j=0,c=0;
+        while(i<n){
+            if(st[j%n]==-1) continue;
+            if(sa[j%n]==sa[i]){
+                sa[j%n]=-1;
+                i++;
+                r--;
+                c=0;
+            }else{
+                c++;
+                j++;
+            }
+            if(c>r) return r;
+            
+        }
+        return 0;
+    }
