@@ -1,0 +1,25 @@
+public int countStudents(int[] st, int[] sa) {
+    int remaining = st.length;
+    int attempts = 0;
+    int i = 0, j = 0;
+
+    while (remaining > 0) {
+        if (attempts > remaining) return remaining; // All remaining students cannot take sandwiches
+
+        if (st[j] == sa[i]) {
+            st[j] = -1; // Student takes the sandwich
+            i++;
+            remaining--;
+            attempts = 0; // Reset attempts as a sandwich was taken
+        } else {
+            attempts++; // Count unsuccessful attempts
+        }
+
+        j = (j + 1) % st.length; // Move to next student in a circular manner
+        while (st[j] == -1 && remaining > 0) {
+            j = (j + 1) % st.length; // Skip students who already took sandwiches
+        }
+    }
+    
+    return 0; // All students are served
+}
