@@ -1,0 +1,12 @@
+public double averageWaitingTime(int[][] customers) {
+        int currentTime = customers[0][0];
+        double waitingTime=0;
+        for(int[] c : customers){
+            if(c[0] > currentTime){
+                currentTime = c[0];
+            }
+            currentTime += c[1];
+            waitingTime += (currentTime - c[0]);
+        }
+        return (double) waitingTime/ customers.length;
+    }
