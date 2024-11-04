@@ -1,0 +1,17 @@
+public int hardestWorker(int n, int[][] logs) {
+    int previousEndTime = 0;
+    int maxWorkTime = 0;
+    int hardestWorkerId = 0;
+
+    for (int[] log : logs) {
+        int currentWorkTime = log[1] - previousEndTime;
+        
+        if (currentWorkTime > maxWorkTime || (currentWorkTime == maxWorkTime && log[0] < hardestWorkerId)) {
+            maxWorkTime = currentWorkTime;
+            hardestWorkerId = log[0];
+        }
+
+        previousEndTime = log[1];
+    }
+    return hardestWorkerId;
+}
