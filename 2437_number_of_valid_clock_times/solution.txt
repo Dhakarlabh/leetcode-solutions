@@ -1,0 +1,28 @@
+public int countTime(String time) {
+        int choices = 1;
+        char h1= time.charAt(0);
+        char h2= time.charAt(1);
+        char m1= time.charAt(3);
+        char m2= time.charAt(4);
+        if (h1 == '?' && h2 == '?') {
+            choices *= 24;
+        }
+
+        if (h1 == '?' && h2 != '?') {
+            choices *= (h2 < '4' ? 3 : 2);
+        } 
+
+        if (h2 == '?' && h1 != '?') {
+            choices *= (h1 < '2' ? 10 : 4);
+        }
+
+        if (m1 == '?') {
+            choices *= 6;
+        }
+
+        if (m2 == '?') {
+            choices *= 10;
+        }
+
+        return choices;
+    }
