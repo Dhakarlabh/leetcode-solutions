@@ -1,0 +1,8 @@
+public boolean sumOfNumberAndReverse(int num) {
+    for (int i = 0; i <= num; i++) {
+        StringBuilder r = new StringBuilder(String.valueOf(i));
+        int rn = Integer.parseInt(r.reverse().toString());
+        if (i + rn == num) return true;
+    }
+    return false;
+}
