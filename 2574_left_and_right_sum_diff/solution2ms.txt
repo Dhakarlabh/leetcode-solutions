@@ -1,0 +1,16 @@
+public int[] leftRightDifference(int[] nums) {
+        int[] ls = new int[nums.length];
+        int[] rs = new int[nums.length];
+        int l =0,r=0;
+        for(int i= 0;i<nums.length;i++){
+            ls[i] = l;
+            rs[nums.length-1-i] = r;
+            l+=nums[i];
+            r+=nums[nums.length-1-i];
+        }
+        int[] ans = new int[nums.length];
+        for(int i=0;i<nums.length;i++){
+            ans[i] = Math.abs(ls[i]-rs[i]);
+        }
+        return ans;
+    }
