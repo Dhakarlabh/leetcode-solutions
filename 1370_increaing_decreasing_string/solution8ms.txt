@@ -1,0 +1,28 @@
+public String sortString(String s) {
+        var c = s.toCharArray();
+        Arrays.sort(c);
+        StringBuilder str = new StringBuilder();
+        int count=0;
+        do{
+            count=0;
+            char prev = ' ';
+            for(int i=0;i<c.length;i++){
+                if(c[i]!=prev && c[i]!='-'){
+                    str.append(c[i]);
+                    prev=c[i];
+                    c[i]='-';
+                    count++;
+                }
+            }
+            prev=' ';
+            for(int i=c.length-1; i>=0;i--){
+                if(c[i]!=prev && c[i]!='-'){
+                    str.append(c[i]);
+                    prev=c[i];
+                    c[i]='-';
+                    count++;
+                }
+            }
+        }while(count!=0);
+        return str.toString();
+    }
