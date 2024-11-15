@@ -1,0 +1,13 @@
+public int findLucky(int[] a) {
+        int[] hash = new int[501];
+        for(int i=0;i<a.length;i++){
+            hash[a[i]]++;
+        }
+
+        for(int i=500;i>0;i--){
+            if(hash[i]==i){
+                return i;
+            }
+        }
+        return -1;
+    }
