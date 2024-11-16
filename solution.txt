@@ -1,0 +1,21 @@
+public int sumFourDivisors(int[] nums) {
+        
+        int sum=0;
+        for(int n : nums){
+            int last_div=0;
+            for(int i=2;i*i<=n;i++){
+                if(n%i==0){          
+                    if(last_div ==0 ){
+                        last_div = i;
+                    }else{
+                        last_div= 0;
+                        break;
+                    }
+                }
+            }
+            if(last_div>0 && last_div!=n/last_div){
+                sum+= (n+1) + (last_div + (n/last_div));
+            }
+        }
+        return sum;
+    }
