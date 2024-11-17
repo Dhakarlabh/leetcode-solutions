@@ -1,0 +1,24 @@
+public boolean halvesAreAlike(String s) {
+        int l = s.length();
+        int v1=0,v2=0;
+        var a = s.toCharArray();
+        for(int i=0; i<l/2;i++){
+            if(IsVowel(a[i])){
+                v1++;
+            }
+        }
+        for(int i=l/2; i<l;i++){
+            if(IsVowel(a[i])){
+                v2++;
+            }
+        }
+
+        return v1==v2;
+    }
+
+    private boolean IsVowel(char c){
+        if(c == 'A' || c == 'E' || c == 'I'|| c == 'O'|| c == 'U' || c == 'a' || c == 'e' || c == 'i'|| c == 'o'|| c == 'u'){
+                return true;
+            }
+            return false;
+    }
