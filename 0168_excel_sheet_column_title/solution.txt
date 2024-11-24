@@ -1,0 +1,19 @@
+public String convertToTitle(int c) {
+        char[] hash = new char[27];
+        for(int i=1;i<hash.length;i++){
+            hash[i] = (char) (65+i-1);
+        }
+        StringBuilder s = new StringBuilder();
+        while(c>0){
+            int temp = c%26;
+            if(temp == 0) {
+                s.append('Z');
+                c--;
+            }
+            else{
+                s.append(hash[temp]);
+            }
+            c /= 26;
+        }
+        return s.reverse().toString();
+    }
