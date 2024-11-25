@@ -1,0 +1,21 @@
+public int majorityElement(int[] nums) {
+        Map<Integer,Integer> map = new HashMap<>();
+        for(int key: nums ){
+            if(map.containsKey(key)){
+                var val = map.get(key);
+                val++;
+                map.put(key,val);
+            }else{
+                map.put(key,1);
+            }
+        }
+        final Integer[] max = {0};
+        AtomicInteger res= new AtomicInteger();
+        map.forEach((key,value) ->{
+            if(value> max[0]){
+                max[0] =value;
+                res.set(key);
+            }
+        });
+        return res.get();
+    }
