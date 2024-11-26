@@ -1,0 +1,21 @@
+public boolean isIsomorphic(String s, String t) {
+        var a = s.toCharArray();
+        var b = t.toCharArray();
+        Map<Character,Character> hash = new HashMap<>();
+
+        for(int i=0;i<a.length;i++){
+            if(!hash.containsKey(a[i])){
+                hash.put(b[i],a[i]);
+            }
+        }
+        StringBuilder str = new StringBuilder();
+        for(int i=0;i<a.length;i++){
+            str.append(hash.get(b[i]));
+        }
+
+
+        if(str.toString().equals(s)) return true;
+
+        return false;
+
+    }
