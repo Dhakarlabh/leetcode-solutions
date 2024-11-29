@@ -1,0 +1,13 @@
+public int minOperations(int[] nums, int k) {
+        var x = 0;
+        for(int i=0;i<nums.length;i++){
+            x^=nums[i];
+        }
+        int res = x^k;
+        int c=0;
+        while(res != 0){
+            c += res & 1;
+            res >>= 1;
+        }
+        return c;
+    }
