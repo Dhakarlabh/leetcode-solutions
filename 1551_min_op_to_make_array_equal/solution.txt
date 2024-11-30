@@ -1,0 +1,4 @@
+public int minOperations(int n) {
+        int half = n / 2;
+        return half * (n - half);
+    }
