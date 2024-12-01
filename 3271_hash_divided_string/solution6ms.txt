@@ -1,0 +1,24 @@
+public String stringHash(String s, int k) {
+        Map<Character,Integer> map = new HashMap<Character,Integer>();
+        for(int i=0;i<26;i++){
+            map.put((char) (97+i),i);
+        }
+        StringBuilder sb = new StringBuilder();
+        int l=0;
+        for(int i=0;i<s.length()/k;i++){
+            var sum = calculateSum(s,k,i*k,map);
+            sb.append((char)(97+sum));
+
+        }
+        return sb.toString();
+    }
+
+    private int calculateSum(String s,int k,int idx,Map<Character,Integer> map){
+        int i=0;
+        int sum =0;
+        while(i<k){
+            sum+= map.get(s.charAt(idx+i));
+            i++;
+        }
+        return sum%26;
+    }
