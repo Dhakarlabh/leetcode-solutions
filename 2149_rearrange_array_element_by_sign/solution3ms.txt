@@ -1,0 +1,17 @@
+public int[] rearrangeArray(int[] nums) {
+
+        int ans[]=new int[nums.length];
+        int pno=0,nno=1;
+        for(int i=0;i<nums.length;i++){
+            if(nums[i]>0){
+                ans[pno]=nums[i];
+                pno+=2;
+            }
+            else{
+                ans[nno]=nums[i];
+                nno+=2;
+            }
+        }
+        return ans;
+
+    }
