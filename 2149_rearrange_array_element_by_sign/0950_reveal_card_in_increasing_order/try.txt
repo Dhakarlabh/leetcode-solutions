@@ -1,0 +1,4 @@
+public int[] deckRevealedIncreasing(int[] deck) {
+        Arrays.sort(deck);
+        
+    }
