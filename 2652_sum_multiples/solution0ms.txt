@@ -1,0 +1,7 @@
+public int sumOfMultiples(int n) {
+        return sumDivBy(n,3)+sumDivBy(n,5)+sumDivBy(n,7)-sumDivBy(n,15)-sumDivBy(n,35)-sumDivBy(n,21)+sumDivBy(n,3*5*7);
+    }
+    private int sumDivBy(int n, int k){
+        int m=n/k;
+        return k*m*(m+1)/2;
+    }
