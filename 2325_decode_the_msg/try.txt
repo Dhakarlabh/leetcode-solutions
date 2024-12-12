@@ -1,0 +1,16 @@
+public String decodeMessage(String k, String m) {
+        var msg = m.toCharArray();
+        Map<Character,Character> hash = new HashMap<>();
+        int j=0;
+        for (char c : msg) {
+            if (!hash.containsKey(c)) {
+                hash.put();
+                j++;
+            }
+        }
+        StringBuilder str = new StringBuilder();
+        for(int i=0;i<k.length();i++){
+            str.append(hash.get(k.charAt(i)));
+        }
+        return str.toString();
+    }
