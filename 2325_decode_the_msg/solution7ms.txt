@@ -1,0 +1,17 @@
+    public String decodeMessage(String k, String m) {
+        var msg = k.toCharArray();
+        Map<Character,Character> hash = new HashMap<>();
+        int j=0;
+        for (char c : msg) {
+            if (!hash.containsKey(c) && c !=' ') {
+                hash.put(c,(char) ('a' + j));
+                j++;
+            }
+        }
+        StringBuilder str = new StringBuilder();
+        for(int i=0;i<m.length();i++){
+            if(m.charAt(i) == ' ') str.append(' ');
+            else str.append(hash.get(m.charAt(i)));
+        }
+        return str.toString();
+    }
