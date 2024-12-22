@@ -1,0 +1,14 @@
+public int numberOfPairs(int[] n1, int[] n2, int k) {
+        for(int i=0;i<n2.length;i++){
+            n2[i] *= k;
+        }
+        int count=0;
+        for(int i=0;i<n1.length;i++){
+            for(int j=0;j<n2.length;j++){
+                if(n1[i]%n2[j] == 0 ){
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
