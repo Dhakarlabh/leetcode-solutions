@@ -1,0 +1,11 @@
+public boolean arrayStringsAreEqual(String[] w1, String[] w2) {
+        StringBuilder str1 = new StringBuilder();
+        StringBuilder str2 = new StringBuilder();
+        for(int i=0;i<w1.length;i++){
+            str1.append(w1[i]);
+        }
+        for(int i=0;i<w2.length;i++){
+            str2.append(w2[i]);
+        }
+        return str1.toString().equals(str2.toString());   
+    }
