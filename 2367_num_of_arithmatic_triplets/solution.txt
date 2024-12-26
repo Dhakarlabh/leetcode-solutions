@@ -1,0 +1,11 @@
+public int arithmeticTriplets(int[] nums, int diff) {
+        boolean[] hash = new boolean[251];
+        for(int i=0;i<nums.length;i++){
+            hash[nums[i]] = true;
+        } 
+        int c=0;
+        for(int i=0; i<nums.length-2;i++){
+            if(hash[(nums[i]+diff)] && hash[(nums[i]+diff*2)]) c++;
+        }
+        return c;
+    }
