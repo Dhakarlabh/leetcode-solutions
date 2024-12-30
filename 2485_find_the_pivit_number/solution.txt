@@ -1,0 +1,10 @@
+public int pivotInteger(int n) {
+        int i=1;
+        while(i<=n){
+            int p1 = (i * (i+1))/2;
+            int p2 = (n * (n+1))/2 - p1 +i;
+            if(p1==p2) return i;
+            i++;
+        }
+        return -1;
+    }
