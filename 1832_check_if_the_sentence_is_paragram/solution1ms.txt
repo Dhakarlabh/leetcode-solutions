@@ -1,0 +1,14 @@
+public boolean checkIfPangram(String s) {
+        boolean[] hash = new boolean[26];
+        for(char c: s.toCharArray()){
+            hash[c%97]=true;
+        }
+        boolean res=true;
+        for (boolean b : hash) {
+            if (!b) {
+                res = false;
+                break;
+            }
+        }
+        return res;
+    }
