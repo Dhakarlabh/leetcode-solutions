@@ -1,0 +1,18 @@
+public int[] findingUsersActiveMinutes(int[][] logs, int k) {
+        Map<Integer,Set<Integer>> hash = new HashMap<>();
+        int[] res = new int[k];
+        for(int[] log : logs){
+            if(hash.containsKey(log[0])){
+                var value = hash.get(log[0]);
+                value.add(log[1]);
+                hash.put(log[0],value);
+            }else{
+                hash.put(log[0],new HashSet<>(){{add(log[1]);}});
+            }
+        }
+        hash.forEach((key,v)->{
+            res[v.size()-1]++;
+        });
+
+        return res;
+    }
