@@ -1,0 +1,14 @@
+public String sortSentence(String s) {
+        String[] words = s.split(" ");
+        int l =words.length;
+        String[] res = new String[l];
+        for(String word: words){
+            int idx = word.charAt(word.length()-1) - '0';
+            res[idx-1] = word.substring(0,word.length()-1);
+        }
+        StringBuilder str = new StringBuilder();
+        for(String r: res){
+            str.append(r).append(" ");
+        }
+        return str.substring(0,str.length()-1);
+    }
