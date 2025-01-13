@@ -1,0 +1,22 @@
+public boolean checkZeroOnes(String s) {
+        int ones=0;
+        int zeros=0;
+        int max0=0;
+        int max1=0;
+
+        for(char ch:s.toCharArray()){
+            if(ch=='1'){
+                ones++;
+                max1=Math.max(ones,max1);
+                zeros=0;
+            }
+            else{
+                zeros++;
+                max0=Math.max(zeros,max0);
+                ones=0;
+            }
+        }
+
+        return max1>max0;
+        
+    }
