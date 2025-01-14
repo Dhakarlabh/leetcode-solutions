@@ -1,0 +1,21 @@
+public int[] getFinalState(int[] nums, int k, int multiplier) {
+        
+        while(k>0){
+            var idx = getMinIndex(nums);
+            nums[idx] *= multiplier;
+            k--;
+        }
+        return nums;
+    }
+
+    private int getMinIndex(int[] nums){
+        int idx = 0;
+        int min=nums[0];
+        for(int i=0;i<nums.length;i++){
+            if(min>nums[i]){
+                idx=i;
+                min=nums[i];
+            }
+        }
+        return idx;
+    }
