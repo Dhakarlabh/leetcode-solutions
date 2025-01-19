@@ -1,0 +1,10 @@
+public int[] decode(int[] e, int first) {
+        int res[] = new int[e.length+1];
+        res[0] = first;
+        int i=1;
+        for(int a : e){
+            res[i] = a ^ res[i-1];
+            i++;
+        }
+        return res;
+    }
