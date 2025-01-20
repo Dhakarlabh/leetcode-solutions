@@ -1,0 +1,23 @@
+public List<List<Integer>> findMatrix(int[] nums) {
+        int[] hash = new int[201];
+        for(int n: nums){
+            hash[n]++;
+        }
+        List<List<Integer>> l = new ArrayList(); 
+        boolean flag=true;
+        while(flag){
+            List<Integer> temp = new ArrayList();
+            for(int i=1;i<201;i++){
+                if(hash[i]!=0){
+                    temp.add(i);
+                    hash[i]--;
+                }
+            }
+            if(temp.isEmpty()){ 
+                flag=false;
+            }else{
+            l.add(temp);
+            }
+        }
+        return l;
+    }
