@@ -1,0 +1,21 @@
+private int distance(int x1, int y1, int x2, int y2){
+        return ((x2 - x1) * (x2 - x1)) + ((y2 - y1) * (y2 - y1));
+    }
+
+    public int get(int[] center,int[][] points,int r){
+        int count = 0;
+        for(int j=0;j<points.length;j++){
+            int[] point = points[j];
+            if((center[0]-point[0])*(center[0]-point[0])+(center[1]-point[1])*(center[1]-point[1]) <= r*r) count++;
+        }
+        return count;
+    }
+
+    public int[] countPoints(int[][] points, int[][] queries) {
+        
+        int[] ans = new int[queries.length];
+        for(int i=0;i<queries.length;i++){
+            ans[i] = get(queries[i],points,queries[i][2]);
+        }
+        return ans;
+    }
