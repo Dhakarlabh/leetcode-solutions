@@ -1,0 +1,9 @@
+public int countAsterisks(String s) {
+        int pcount=0;
+        int count=0;
+        for(char c : s.toCharArray()){
+            if(pcount%2==0 && c == '*') count++;
+            else if (c == '|') pcount++;
+        }
+        return count;
+    }
