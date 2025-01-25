@@ -1,0 +1,18 @@
+public int[] lexicographicallySmallestArray(int[] nums, int limit) {
+        int c;
+        boolean flag = true ;
+        while(flag){
+            flag = false;
+        for(int i=0;i<nums.length;i++){
+            for(int j=i+1;j<nums.length;j++){
+                if(nums[j] < nums[i] && Math.abs(nums[j]-nums[i])<=limit){    
+                    var temp = nums[i];
+                    nums[i] = nums[j];
+                    nums[j] = temp;
+                    flag= true;
+                }
+            }
+        }
+        }
+        return nums;
+    }
