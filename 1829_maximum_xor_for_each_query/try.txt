@@ -1,0 +1,25 @@
+    public int[] getMaximumXor(int[] nums, int maximumBit) {
+        int[] hash = new int[nums.length];
+        int[] max = new int[nums.length];
+        int[] res = new int[nums.length];
+        hash[0] = nums[0];
+        int maxXor = nums[0];
+        max[nums.length-1]= nums[0];
+        for(int i=1;i<nums.length; i++){
+            hash[i] = nums[i] ^ hash[i-1];
+            if(hash[i]>maxXor){
+                max[nums.length-1-i] = hash[i];
+                maxXor = hash[i];
+            }
+            else{
+                max[nums.length-1-i] = maxXor;
+            }
+        }
+        for(int i=nums.length-1;i>=0;i--){
+            System.out.println(max[i]);
+        } 
+        for(int i=nums.length-1;i>=0;i--){
+            res[i] = hash[i] ^ max[i];
+        } 
+        return res;
+    }
